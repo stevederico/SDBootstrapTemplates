@@ -1,0 +1,4 @@
+- How to make static controller
+- how to render without application layout
+- fix assets on email
+- Include static Controller code
