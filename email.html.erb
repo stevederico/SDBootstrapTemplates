@@ -135,7 +135,7 @@
     <script type="text/javascript">
       $(document).ready(function() {  
         $("#email_form").submit(function(event) {
-          
+              event.preventDefault(); 
           // disable the submit button to prevent repeated clicks
           $('.submit-button').attr("disabled", "disabled");
           
