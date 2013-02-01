@@ -74,9 +74,9 @@
 <div class="form-errors" id="form-errors">
   </div>
 
-      <%= form_tag "/", :method => "POST",:id => 'email_form' do %>
-        <%= text_field_tag 'email', nil, :placeholder => 'jerry@gmail.com',:class => 'span4 email' %></br>
-        <%= submit_tag "Notify Me", :class => "btn btn-success submit-button" %>
+      <%= form_tag "/", :method => "POST",:id => 'email_form',:remote => true do %>
+        <%= text_field_tag 'email', nil, :placeholder => 'jsmith@gmail.com',:class => 'span4 email' %></br>
+        <%= submit_tag "Sign Up", :class => "btn btn-success submit-button" %>
       <% end %>
 
       </div>
@@ -133,9 +133,11 @@
     <%= javascript_include_tag "/javascripts/bootstrap-typeahead.js" %>
 
     <script type="text/javascript">
-      $(document).ready(function() {  
+      $(document).ready(function() { 
+        $(".email").focus();
+        window.scrollTo(0,0);
+
         $("#email_form").submit(function(event) {
-              event.preventDefault(); 
           // disable the submit button to prevent repeated clicks
           $('.submit-button').attr("disabled", "disabled");
           
