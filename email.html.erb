@@ -146,11 +146,20 @@
                $(".submit-button").removeAttr("disabled");
               return false;
           }else{
+              event.preventDefault();  
+              $.ajax({
+                type: "POST",
+                url: $(this).attr('action'),
+                data: $(this).serialize(),
+                dataType: "JSON"
+              });
+
               $(".form-errors").removeClass('alert alert-error');
               $(".form-errors").text("Thanks! You are all signed up!").addClass('alert alert-success');
               $(".submit-button").hide();
-              $(".email").hide();
-              return true;
+              $(".email").hide(); 
+
+              return false;
           };
         });
       });
